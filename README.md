@@ -7,4 +7,6 @@ Team Airwis consists of two pupils at Tynecastle High School, Akshith Bhimanere 
 The purpose of the AIRWISE device is to constantly measure the air quality of a room/indoor area, and to correct humidity levels. This is achieved by using a Kitronik Air quality control hat, and reading the air quiality values through it. The humidity level is adjusted based on what is optimal at that time of day, which we have calculated through various tests.
 
 ## Technicasl details
-######hello
+### what the machine does
+-mesures air quality, humidity, temperature,
+-
