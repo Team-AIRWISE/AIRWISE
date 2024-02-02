@@ -1,6 +1,6 @@
 from time import sleep
 from KitronikAirQualityControlHAT import *
-from RPi.GPIO as gpio
+import RPi.GPIO as gpio
 bme688 = KitronikBME688()
 oled = KitronikOLED()
 hpo1 = KitronikHighPowerOut(1)
@@ -57,4 +57,5 @@ elif c02>1000:
     sleep(1)
     buzzer.changeTone(220)
     sleep(1)
+
 
