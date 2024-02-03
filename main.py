@@ -1,6 +1,7 @@
 from time import sleep
 from KitronikAirQualityControlHAT import *
 import RPi.GPIO as gpio
+import pymysql
 bme688 = KitronikBME688()
 oled = KitronikOLED()
 hpo1 = KitronikHighPowerOut(1)
@@ -21,7 +22,7 @@ humidity=bme688.readHumidity()
 c02=bme688.readeCO2()
 bme688.getAirQualityPercent()
 
-
+#Water level check TBF
 
 #Humidity correction
 
@@ -35,12 +36,11 @@ else:
   hpo2.turnOff()
 
 #C02 level Warning
-
-if c02>800:
+if c02>800 AND c02<1000:
   oled.displayText("C02 levels are high", 1)
   oled.displayText("Caution!", 2)
   buzzer.start()
-  for i in range(4)
+  for i in range(4):
     buzzer.changeTone(440)
     sleep(1)
     buzzer.changeTone(220)
@@ -59,3 +59,7 @@ elif c02>1000:
     sleep(1)
 
 
+#Record data in spreadsheet
+    
+
+#upload info to HTML website
