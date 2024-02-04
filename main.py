@@ -9,7 +9,7 @@ buzzer = KitronikBuzzer()
 
 #Display AIRWISE logo
 
-oled.image = Image.open("kitronik-logo.jpg")
+oled.image = Image.open("AIRWISE_logo.jpg")
 oled.show()
 sleep(5)
 oled.clear()
