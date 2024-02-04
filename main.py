@@ -36,7 +36,7 @@ else:
   hpo2.turnOff()
 
 #C02 level Warning
-if c02>800 AND c02<1000:
+if c02>800 and c02<1000:
   oled.displayText("C02 levels are high", 1)
   oled.displayText("Caution!", 2)
   buzzer.start()
