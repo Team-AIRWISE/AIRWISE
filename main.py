@@ -1,7 +1,6 @@
 from time import sleep
 from KitronikAirQualityControlHAT import *
 import RPi.GPIO as gpio
-import pymysql
 bme688 = KitronikBME688()
 oled = KitronikOLED()
 hpo1 = KitronikHighPowerOut(1)
