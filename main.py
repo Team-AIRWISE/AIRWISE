@@ -25,7 +25,7 @@ bme688.getAirQualityPercent()
 
 #Humidity correction
 
-if humdity<43:
+if humidity<43:
   hpo1.turnOn()
 elif humidity>47:
   hpo2.turnOn()
@@ -50,8 +50,7 @@ elif c02>1000:
   oled.displayText("C02 levels are EXTREMELY HIGH", 1)
   oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
   buzzer.start()
-  buzzer.start()
-  while 1==1:
+  while c02>1000:
     buzzer.changeTone(440)
     sleep(1)
     buzzer.changeTone(220)
