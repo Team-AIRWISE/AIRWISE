@@ -21,7 +21,10 @@ oled.clear()
 bme688.measureData()
 humidity=bme688.readHumidity()
 c02=bme688.readeCO2()
-bme688.getAirQualityPercent()
+aqp=bme688.getAirQualityPercent()
+temperature=bme688.readTemperature()
+aqi=bme688.getAirQualityScore()
+Pressure=bme688.readPressure()
 
 #Water level check TBF
 
@@ -58,6 +61,28 @@ elif c02>1000:
     buzzer.changeTone(220)
     sleep(1)
 
+#AQI level Warning
+
+if aqi>150 and aqi<200:
+  oled.displayText("Air Quality levels are unhealthy", 1)
+  oled.displayText("Caution!", 2)
+  buzzer.start()
+  for i in range(4):
+    buzzer.changeTone(440)
+    sleep(1)
+    buzzer.changeTone(220)
+    sleep(1)
+  buzzer.stop()
+  c02High=True
+elif aqi>200:
+  oled.displayText("Air Quality levels are EXTREMELY unhealthy", 1)
+  oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
+  buzzer.start()
+  while aqi>200:
+    buzzer.changeTone(440)
+    sleep(1)
+    buzzer.changeTone(220)
+    sleep(1)
 
 #Record data in spreadsheet
     def create_connection(path):
