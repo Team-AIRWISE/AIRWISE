@@ -1,6 +1,8 @@
 from time import sleep
 from KitronikAirQualityControlHAT import *
 import RPi.GPIO as gpio
+import sqlite3
+from sqlite3 import Error
 bme688 = KitronikBME688()
 oled = KitronikOLED()
 hpo1 = KitronikHighPowerOut(1)
@@ -58,6 +60,15 @@ elif c02>1000:
 
 
 #Record data in spreadsheet
-    
+    def create_connection(path):
+    connection = None
+    try:
+        connection = database.sqlite
+        print("Connection to SQLite DB successful")
+    except Error as e:
+        print(f"The error '{e}' occurred")
+
+    return connection
+
 
 #upload info to HTML website
