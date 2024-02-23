@@ -20,6 +20,7 @@ oled.show()
 #Read Air quality levels
 
 bme688.measureData()
+bme688.calcBaselines(oled)
 humidity=bme688.readHumidity()
 #c02=bme688.readeCO2()
 aqp=bme688.getAirQualityPercent()
