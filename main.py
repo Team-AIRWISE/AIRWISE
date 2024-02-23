@@ -21,7 +21,7 @@ oled.show()
 
 bme688.measureData()
 humidity=bme688.readHumidity()
-c02=bme688.readeCO2()
+#c02=bme688.readeCO2()
 aqp=bme688.getAirQualityPercent()
 temperature=bme688.readTemperature()
 aqi=bme688.getAirQualityScore()
