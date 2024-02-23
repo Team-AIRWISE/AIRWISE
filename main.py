@@ -18,7 +18,7 @@ sleep(5)
 oled.clear()
 oled.show()
 #Read Air quality levels
-'''
+
 bme688.measureData()
 humidity=bme688.readHumidity()
 c02=bme688.readeCO2()
@@ -26,7 +26,7 @@ aqp=bme688.getAirQualityPercent()
 temperature=bme688.readTemperature()
 aqi=bme688.getAirQualityScore()
 Pressure=bme688.readPressure()
-
+'''
 #Water level check TBF
 
 #Humidity correction
