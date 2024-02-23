@@ -18,7 +18,7 @@ sleep(5)
 oled.clear()
 
 #Read Air quality levels
-
+'''
 bme688.measureData()
 humidity=bme688.readHumidity()
 c02=bme688.readeCO2()
@@ -84,7 +84,7 @@ elif aqi>200:
     sleep(1)
     buzzer.changeTone(220)
     sleep(1)
-
+'''
 #Record data in spreadsheet
 '''    def create_connection(path):
     connection = None
