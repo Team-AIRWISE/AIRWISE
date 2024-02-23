@@ -22,12 +22,12 @@ oled.show()
 bme688.measureData()
 bme688.calcBaselines(oled)
 humidity=bme688.readHumidity()
-#c02=bme688.readeCO2()
+c02=bme688.readeCO2()
 aqp=bme688.getAirQualityPercent()
 temperature=bme688.readTemperature()
 aqi=bme688.getAirQualityScore()
 Pressure=bme688.readPressure()
-'''
+
 #Water level check TBF
 
 #Humidity correction
@@ -85,7 +85,6 @@ elif aqi>200:
     sleep(1)
     buzzer.changeTone(220)
     sleep(1)
-'''
 #Record data in spreadsheet
 '''    def create_connection(path):
     connection = None
