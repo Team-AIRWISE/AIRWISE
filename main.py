@@ -16,7 +16,7 @@ oled.image = oled.image.convert('1')
 oled.show()
 sleep(5)
 oled.clear()
-
+oled.show()
 #Read Air quality levels
 '''
 bme688.measureData()
