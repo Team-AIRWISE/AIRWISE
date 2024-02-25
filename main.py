@@ -95,9 +95,35 @@ def looped(humidOn):
 
   #C02 level Warning
 
+  if bme688.readeCO2()>10000 and bme688.readeCO2()<1200:
+    oled.clear()
+    oled.displayText("C02 levels are high", 1)
+    oled.displayText("Caution!", 2)
+    oled.show()
+    buzzer.start()
+    for i in range(4):
+      buzzer.changeTone(440)
+      sleep(1)
+      buzzer.changeTone(220)
+      sleep(1)
+    buzzer.stop()
+    c02High=True
+
+  elif bme688.readeCO2()>1200:
+    oled.clear()
+    oled.displayText("C02 levels are EXTREMELY HIGH", 1)
+    oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
+    oled.show()
+    buzzer.start()
+    while bme688.readeCO2()>1000:
+      buzzer.changeTone(440)
+      sleep(1)
+      buzzer.changeTone(220)
+      sleep(1)
+
   #AQI level Warning
 
-  if bme688.getAirQualityScore()>150 and bme688.getAirQualityScore()<200:
+  if bme688.getAirQualityScore()>300 and bme688.getAirQualityScore()<400:
     oled.displayText("Air Quality levels are unhealthy", 1)
     oled.displayText("Caution!", 2)
     oled.show()
@@ -109,12 +135,12 @@ def looped(humidOn):
       sleep(1)
     buzzer.stop()
     c02High=True
-  elif bme688.getAirQualityScore()>200:
+  elif bme688.getAirQualityScore()>400:
     oled.displayText("Air Quality levels are EXTREMELY unhealthy", 1)
     oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
     oled.show()
     buzzer.start()
-    while bme688.getAirQualityScore()>200:
+    while bme688.getAirQualityScore()>400:
       buzzer.changeTone(440)
       sleep(1)
       buzzer.changeTone(220)
