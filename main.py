@@ -110,6 +110,7 @@ def looped(humidOn):
     c02High=True
 
   elif bme688.readeCO2()>1200:
+    print(bme688.readeCO2())
     oled.clear()
     oled.displayText("C02 levels are EXTREMELY HIGH", 1)
     oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
