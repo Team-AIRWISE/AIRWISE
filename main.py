@@ -95,7 +95,7 @@ def looped(humidOn):
 
   #C02 level Warning
 
-  if bme688.readeCO2()>1000 and bme688.readeCO2()<1200:
+  if bme688.readeCO2()>10000 and bme688.readeCO2()<12000:
     oled.clear()
     oled.displayText("C02 levels are high", 1)
     oled.displayText("Caution!", 2)
@@ -109,7 +109,7 @@ def looped(humidOn):
     buzzer.stop()
     c02High=True
 
-  elif bme688.readeCO2()>1200:
+  elif bme688.readeCO2()>12000:
     print(bme688.readeCO2())
     oled.clear()
     oled.displayText("C02 levels are EXTREMELY HIGH", 1)
