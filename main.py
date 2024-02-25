@@ -47,6 +47,17 @@ def looped():
   bme688.getAirQualityScore()
   bme688.readPressure()
 
+  #Display air quality levels
+
+  oled.clear()
+  oled.displayText("Temperature:" + str(bme688.readTemperature()), 1)
+  oled.displayText("Pressure:" + str(bme688.readPressure()), 2)
+  oled.displayText("Humidity:"+  str(bme688.readHumidity()), 3)
+  oled.displayText("eCO2:" + str(bme688.readeCO2()), 4)
+  oled.displayText("Air Quality %:" + str(bme688.getAirQualityPercent()), 5)
+  oled.displayText("Air Quality Score:" + str(bme688.getAirQualityScore()), 6)
+  oled.show()
+
   #Water level check TBF
 
   #Humidity correction
@@ -82,12 +93,13 @@ def looped():
       sleep(0.2)
       hpo2.turnOff()
 
-
   #C02 level Warning
       
   if bme688.readeCO2()>800 and bme688.readeCO2()<1000:
+    oled.clear()
     oled.displayText("C02 levels are high", 1)
     oled.displayText("Caution!", 2)
+    oled.show()
     buzzer.start()
     for i in range(4):
       buzzer.changeTone(440)
@@ -96,9 +108,12 @@ def looped():
       sleep(1)
     buzzer.stop()
     c02High=True
+
   elif bme688.readeCO2()>1000:
+    oled.clear()
     oled.displayText("C02 levels are EXTREMELY HIGH", 1)
     oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
+    oled.show()
     buzzer.start()
     while bme688.readeCO2()>1000:
       buzzer.changeTone(440)
@@ -111,6 +126,7 @@ def looped():
   if bme688.getAirQualityScore()>150 and bme688.getAirQualityScore()<200:
     oled.displayText("Air Quality levels are unhealthy", 1)
     oled.displayText("Caution!", 2)
+    oled.show()
     buzzer.start()
     for i in range(4):
       buzzer.changeTone(440)
@@ -122,6 +138,7 @@ def looped():
   elif bme688.getAirQualityScore()>200:
     oled.displayText("Air Quality levels are EXTREMELY unhealthy", 1)
     oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
+    oled.show()
     buzzer.start()
     while bme688.getAirQualityScore()>200:
       buzzer.changeTone(440)
@@ -147,5 +164,8 @@ def looped():
 
 #upload info to HTML website
 
+while 1==1:
+  looped()
+  sleep(10)
 
 conn.close()
