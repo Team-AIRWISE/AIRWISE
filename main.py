@@ -94,7 +94,7 @@ def looped(humidOn):
       hpo2.turnOff()
 
   #C02 level Warning
- '''     
+'''     
   if bme688.readeCO2()>800 and bme688.readeCO2()<1000:
     oled.clear()
     oled.displayText("C02 levels are high", 1)
