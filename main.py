@@ -36,7 +36,7 @@ bme688.calcBaselines(oled)
 #Looped code
 
 def looped(humidOn):
-    
+
   #Read Air quality levels
 
   bme688.measureData()
@@ -94,33 +94,7 @@ def looped(humidOn):
       hpo2.turnOff()
 
   #C02 level Warning
-'''     
-  if bme688.readeCO2()>800 and bme688.readeCO2()<1000:
-    oled.clear()
-    oled.displayText("C02 levels are high", 1)
-    oled.displayText("Caution!", 2)
-    oled.show()
-    buzzer.start()
-    for i in range(4):
-      buzzer.changeTone(440)
-      sleep(1)
-      buzzer.changeTone(220)
-      sleep(1)
-    buzzer.stop()
-    c02High=True
 
-  elif bme688.readeCO2()>1000:
-    oled.clear()
-    oled.displayText("C02 levels are EXTREMELY HIGH", 1)
-    oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
-    oled.show()
-    buzzer.start()
-    while bme688.readeCO2()>1000:
-      buzzer.changeTone(440)
-      sleep(1)
-      buzzer.changeTone(220)
-      sleep(1)
-'''
   #AQI level Warning
 
   if bme688.getAirQualityScore()>150 and bme688.getAirQualityScore()<200:
