@@ -124,6 +124,7 @@ def looped(humidOn):
   #AQI level Warning
 
   if bme688.getAirQualityScore()>300 and bme688.getAirQualityScore()<400:
+    oled.clear()
     oled.displayText("Air Quality levels are unhealthy", 1)
     oled.displayText("Caution!", 2)
     oled.show()
@@ -136,6 +137,7 @@ def looped(humidOn):
     buzzer.stop()
     c02High=True
   elif bme688.getAirQualityScore()>400:
+    oled.clear()
     oled.displayText("Air Quality levels are EXTREMELY unhealthy", 1)
     oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
     oled.show()
