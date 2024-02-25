@@ -35,7 +35,7 @@ bme688.calcBaselines(oled)
 
 #Looped code
 
-def looped():
+def looped(humidOn):
     
   #Read Air quality levels
 
@@ -165,7 +165,7 @@ def looped():
 #upload info to HTML website
 
 while 1==1:
-  looped()
+  looped(humidOn)
   sleep(10)
 
 conn.close()
