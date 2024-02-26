@@ -3,7 +3,7 @@ from KitronikAirQualityControlHAT import *
 import RPi.GPIO as gpio
 import sqlite3
 import datetime
-humidOn=False
+humid=0
 #connect to database
 
 conn = sqlite3.connect("py.db")
@@ -35,8 +35,9 @@ bme688.calcBaselines(oled)
 
 #Looped code
 
-def looped(humidOn):
-
+def looped(humid):
+  if humid==0:
+    humidOn=False
   #Read Air quality levels
 
   bme688.measureData()
@@ -168,7 +169,8 @@ def looped(humidOn):
 #upload info to HTML website
 
 while 1==1:
-  looped(humidOn)
+  looped(humid)
+  humid=humid+1
   sleep(10)
 
 conn.close()
