@@ -1,3 +1,16 @@
 h3{
-    color:rgb(207, 93, 80)
+    color:rgb(207, 93, 80);
+}
+tr{
+    color:rgb(196, 80, 207);
+}
+table{
+    color:rgb(64, 112, 0);
+    border:solid red;
+    border-radius: 5px;
+}
+td{
+    color:rgb(39, 39, 39);
+    border:solid red;
+    border-radius: 15px;
 }
