@@ -72,6 +72,7 @@ def looped(humidOn):
       sleep(0.2)
       hpo2.turnOff()
       humidOn=False
+      print("humidifier off")
     hpo1.turnOn()
 
   elif bme688.readHumidity()<43:
@@ -80,6 +81,7 @@ def looped(humidOn):
       sleep(0.2)
       hpo2.turnOff()
       humidOn=True
+      print("humidifier on")
     hpo1.turnOff()
 
   else:
@@ -92,7 +94,8 @@ def looped(humidOn):
       hpo2.turnOn()
       sleep(0.2)
       hpo2.turnOff()
-
+      humidOn=False
+      print("humidifier off")
   #C02 level Warning
 
   if bme688.readeCO2()>10000 and bme688.readeCO2()<12000:
