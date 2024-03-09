@@ -6,4 +6,5 @@ app = Flask(__name__)
 def index():
     return render_template('airwise.html')
 
-index()
+if __name__ == '__main__':
+    app.run(debug=True, host='AIRWISE.local', port=5000)
