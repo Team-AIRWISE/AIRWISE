@@ -5,6 +5,7 @@ import RPi.GPIO as gpio
 import sqlite3
 import datetime
 humidOn=False
+calibration=0
 #connect to database
 
 conn = sqlite3.connect("py.db")
@@ -183,7 +184,11 @@ def looped(humidOn):
 #upload info to HTML website
 
 while 1==1:
-  humidOn=looped(humidOn)
+  if calibration>100:
+    humidOn=looped(humidOn)
   sleep(10)
+  calibration=calibration+1
+
+
 
 conn.close()
