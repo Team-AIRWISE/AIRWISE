@@ -1,3 +1,4 @@
+from flask import Flask, render_template
 from time import sleep
 from KitronikAirQualityControlHAT import *
 import RPi.GPIO as gpio
@@ -12,6 +13,11 @@ command1 = """CREATE TABLE IF NOT EXISTS
 loggs(Time TEXT PRIMARY KEY, Temperature REAL, humidity REAL, eco2 REAL, aqs REAL, aqp REAL, pressure REAL)"""
 cur.execute(command1)
 
+#Host website
+app = Flask(__name__)
+@app.route('/')
+def index():
+    return render_template('airwise.html', template_folder='templates')
 #define modules
 
 bme688 = KitronikBME688()
@@ -168,6 +174,9 @@ def looped(humidOn):
   conn.commit()
 
   return humidOn
+
+  if __name__ == '__main__':
+    app.run(debug=True, host='AIRWISE.local', port=5000)
 
 
 
