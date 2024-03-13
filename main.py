@@ -19,6 +19,10 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('airwise.html', template_folder='templates')
+
+if __name__ == '__main__':
+    app.run(debug=True, host='AIRWISE.local', port=5000)
+
 #define modules
 
 bme688 = KitronikBME688()
@@ -105,7 +109,7 @@ def looped(humidOn):
       print("humidifier off")
   #C02 level Warning
 
-  if bme688.readeCO2()>10000 and bme688.readeCO2()<12000:
+'''  if bme688.readeCO2()>10000 and bme688.readeCO2()<12000:
     oled.clear()
     oled.displayText("C02 levels are high", 1)
     oled.displayText("Caution!", 2)
@@ -158,7 +162,7 @@ def looped(humidOn):
       sleep(1)
       buzzer.changeTone(220)
       sleep(1)
-
+'''
   #Record data in database
       
   currentTime = str(datetime.datetime.now())
@@ -175,9 +179,6 @@ def looped(humidOn):
   conn.commit()
 
   return humidOn
-
-  if __name__ == '__main__':
-    app.run(debug=True, host='AIRWISE.local', port=5000)
 
 
 
