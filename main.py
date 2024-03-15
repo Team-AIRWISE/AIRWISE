@@ -196,6 +196,7 @@ def looped(humidOn):
 
 while 1==1:
   if 1==1 :
+    print("debug")
     humidOn=looped(humidOn)
   sleep(10)
   calibration=calibration+1
