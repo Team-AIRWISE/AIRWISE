@@ -195,7 +195,7 @@ def looped(humidOn):
 #upload info to HTML website
 
 while 1==1:
-  if '''calibration>100''' 1==1 :
+  if 1==1 :
     humidOn=looped(humidOn)
   sleep(10)
   calibration=calibration+1
