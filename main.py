@@ -7,7 +7,6 @@ import datetime
 from threading import Thread
 
 humidOn = False
-calibration = 0
 
 # Define modules
 bme688 = KitronikBME688()
@@ -34,6 +33,7 @@ def index():
   return render_template('airwise.html', template_folder='templates')
 
 def run_loop():
+  calibration = 0
   global humidOn
   while True:
     if calibration>100:
