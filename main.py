@@ -36,10 +36,11 @@ def index():
 def run_loop():
   global humidOn
   while True:
-    if 1 == 1:
+    if calibration>100:
       print("debug")
       humidOn = looped(humidOn)
-      sleep(10)
+    sleep(10)
+    calibration=calibration+1
 
 def looped(humidOn):
     
