@@ -1,97 +1,62 @@
+import threading
 from flask import Flask, render_template
 from time import sleep
 from KitronikAirQualityControlHAT import *
 import RPi.GPIO as gpio
 import sqlite3
 import datetime
-from threading import Thread
 
-humidOn = False
-calibration = 0
-
-# Define modules
-bme688 = KitronikBME688()
-oled = KitronikOLED()
-hpo1 = KitronikHighPowerOut(1)
-hpo2 = KitronikHighPowerOut(2)
-buzzer = KitronikBuzzer()
-
-# Connect to database
-conn = sqlite3.connect("py.db")
-cur = conn.cursor()
-command1 = """CREATE TABLE IF NOT EXISTS
-loggs(Time TEXT PRIMARY KEY, Temperature REAL, humidity REAL, eco2 REAL, aqs REAL, aqp REAL, pressure REAL)"""
-cur.execute(command1)
-
-# Calibrate sensor
-bme688.calcBaselines(oled)
-bme688.measureData()
-bme688.readHumidity()
-bme688.readeCO2()
-bme688.getAirQualityPercent()
-bme688.readTemperature()
-bme688.getAirQualityScore()
-bme688.readPressure()
-
-# Host website
+# Initialize Flask app
 app = Flask(__name__)
 
+# Initialize database connection
+conn = sqlite3.connect("py.db")
+cur = conn.cursor()
+
+# Define Flask route
 @app.route('/')
 def index():
     return render_template('airwise.html', template_folder='templates')
 
-def run_loop():
-    global humidOn
+# Define function to handle data logging
+def log_data():
     while True:
-        if 1 == 1:
-            print("debug")
-            humidOn = looped(humidOn)
+        # Record data in database
+        # (This part of the code is adapted from your looped() function)
+        currentTime = str(datetime.datetime.now())
+        temperature = bme688.readTemperature()
+        humidity = bme688.readHumidity()
+        co2 = bme688.readeCO2()
+        aqi = bme688.getAirQualityScore()
+        aqp = bme688.getAirQualityPercent()
+        pressure = bme688.readPressure()
+
+        cur.execute("INSERT INTO loggs (Time, Temperature, humidity, eco2, aqs, aqp, pressure) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    (currentTime, temperature, humidity, co2, aqi, aqp, pressure))
+
+        conn.commit()
+
         sleep(10)
 
-def looped(humidOn):
-    # Read Air quality levels
-    bme688.measureData()
-    bme688.readHumidity()
-    bme688.readeCO2()
-    bme688.getAirQualityPercent()
-    bme688.readTemperature()
-    bme688.getAirQualityScore()
-    bme688.readPressure()
-
-    # Display air quality levels
-    oled.clear()
-    oled.displayText("Temperature:" + str(bme688.readTemperature()), 1)
-    oled.displayText("Pressure:" + str(bme688.readPressure()), 2)
-    oled.displayText("Humidity:" + str(bme688.readHumidity()), 3)
-    oled.displayText("eCO2:" + str(bme688.readeCO2()), 4)
-    oled.displayText("Air Quality %:" + str(bme688.getAirQualityPercent()), 5)
-    oled.displayText("Air Quality Score:" + str(bme688.getAirQualityScore()), 6)
-    oled.show()
-
-    # Water level check TBF
-
-    # Humidity correction
-    # Your humidity correction logic goes here
-
-    # Record data in database
-    currentTime = str(datetime.datetime.now())
-    temperature = bme688.readTemperature()
-    humidity = bme688.readHumidity()
-    co2 = bme688.readeCO2()
-    aqi = bme688.getAirQualityScore()
-    aqp = bme688.getAirQualityPercent()
-    pressure = bme688.readPressure()
-
-    cur.execute("INSERT INTO loggs (Time, Temperature, humidity, eco2, aqs, aqp, pressure) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                (currentTime, temperature, humidity, co2, aqi, aqp, pressure))
-
-    conn.commit()
-
-    return humidOn
-
-if __name__ == '__main__':
-    thread = Thread(target=run_loop)
-    thread.start()
+# Start Flask app in a separate thread
+def run_flask():
     app.run(debug=True, host='AIRWISE.local', port=5000)
 
-conn.close()
+# Start the database logging thread
+def run_logging():
+    log_data()
+
+if __name__ == '__main__':
+    # Create and start threads for Flask app and database logging
+    flask_thread = threading.Thread(target=run_flask)
+    logging_thread = threading.Thread(target=run_logging)
+
+    flask_thread.start()
+    logging_thread.start()
+
+    # Wait for threads to finish (which they won't, so this will effectively keep the main thread alive)
+    flask_thread.join()
+    logging_thread.join()
+
+    # Close database connection when finished
+    conn.close()
