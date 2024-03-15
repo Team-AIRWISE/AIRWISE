@@ -14,6 +14,19 @@ command1 = """CREATE TABLE IF NOT EXISTS
 loggs(Time TEXT PRIMARY KEY, Temperature REAL, humidity REAL, eco2 REAL, aqs REAL, aqp REAL, pressure REAL)"""
 cur.execute(command1)
 
+
+#Calibrate sensor
+
+bme688.calcBaselines(oled)
+bme688.measureData()
+bme688.readHumidity()
+bme688.readeCO2()
+bme688.getAirQualityPercent()
+bme688.readTemperature()
+bme688.getAirQualityScore()
+bme688.readPressure()
+
+
 #Host website
 app = Flask(__name__)
 @app.route('/')
@@ -39,10 +52,6 @@ oled.show()
 sleep(5)
 oled.clear()
 oled.show()
-
-#Calibrate sensor
-
-bme688.calcBaselines(oled)
 
 #Looped code
 
@@ -186,7 +195,7 @@ def looped(humidOn):
 #upload info to HTML website
 
 while 1==1:
-  if calibration>100:
+  if '''calibration>100'''True:
     humidOn=looped(humidOn)
   sleep(10)
   calibration=calibration+1
