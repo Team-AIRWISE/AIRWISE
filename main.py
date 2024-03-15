@@ -14,6 +14,14 @@ command1 = """CREATE TABLE IF NOT EXISTS
 loggs(Time TEXT PRIMARY KEY, Temperature REAL, humidity REAL, eco2 REAL, aqs REAL, aqp REAL, pressure REAL)"""
 cur.execute(command1)
 
+#define modules
+
+bme688 = KitronikBME688()
+oled = KitronikOLED()
+hpo1 = KitronikHighPowerOut(1)
+hpo2 = KitronikHighPowerOut(2)
+buzzer = KitronikBuzzer()
+
 
 #Calibrate sensor
 
@@ -35,14 +43,6 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True, host='AIRWISE.local', port=5000)
-
-#define modules
-
-bme688 = KitronikBME688()
-oled = KitronikOLED()
-hpo1 = KitronikHighPowerOut(1)
-hpo2 = KitronikHighPowerOut(2)
-buzzer = KitronikBuzzer()
 
 #Display AIRWISE logo
 
