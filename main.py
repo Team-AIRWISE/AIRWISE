@@ -30,7 +30,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return render_template('airwise.html', template_folder='templates')
+  return render_template('airwise.html', template_folder='templates', humidity=bme688.readHumidity())
 
 def run_loop():
   calibration = 0
