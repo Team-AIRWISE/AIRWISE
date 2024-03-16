@@ -30,7 +30,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return render_template('airwise.html', template_folder='templates')
+  bme688.measureData()
+  return render_template('airwise.html', template_folder='templates', humidity=bme688.readHumidity(), co2=bme688.readeCO2(), temperature=bme688.readTemperature(), aqp=bme688.getAirQualityPercent(), pressure=bme688.readPressure())
 
 #loop with calibration check
 
@@ -95,8 +96,11 @@ def looped(humidOn):
   return humidOn
 
 if __name__ == '__main__':
+    print("debug1")
     thread = Thread(target=run_loop)
+    print("debug2")
     thread.start()
+    print("debug3")
     app.run(debug=True, host='AIRWISE.local', port=5000)
 
 conn.close()
