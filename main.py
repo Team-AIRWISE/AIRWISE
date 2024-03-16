@@ -31,7 +31,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
   bme688.measureData()
-  return render_template('airwise.html', template_folder='templates', humidity=bme688.readHumidity())
+  return render_template('airwise.html', template_folder='templates', humidity=bme688.readHumidity(), co2=bme688.readeCO2(), temperature=bme688.readTemperature(), aqp=bme688.getAirQualityPercent(), pressure=bme688.readPressure())
 
 #loop with calibration check
 
@@ -72,7 +72,6 @@ def looped(humidOn):
   oled.displayText("Humidity:" + str(bme688.readHumidity()), 3)
   oled.displayText("eCO2:" + str(bme688.readeCO2()), 4)
   oled.displayText("Air Quality %:" + str(bme688.getAirQualityPercent()), 5)
-  oled.displayText("Air Quality Score:" + str(bme688.getAirQualityScore()), 6)
   oled.show()
 
   # Water level check TBF

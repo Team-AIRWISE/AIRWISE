@@ -2,28 +2,14 @@
 <html>
     <head>
         <title>Airwise</title>
-        <link rel="shortcut icon" href="{{ url_for(filename='images/favicon.png') }}">
     </head>
     <body>
-        <p>Temperature: {{humidity}}&#8451;</p>
+        <p>Temperature: {{temperature}}&#8451;</p>
+		<p>Pressure: {{pressure}}Pa</p>
+        <p>Humidity: {{humidity}}%</p>
+        <p>eCO2: {{co2}}ppm</p>
+        <p>Air Quality: {{aqp}}%</p>
         <h1>this is our test website</h1>
         <p> this is a fun little thing we do be makin</p>
-        <table>
-            <tr>
-                <td>im bob</td>
-                <td>im bob too</td>
-                <td>im not bod</td>
-            </tr>
-            <tr>
-                <td>im jim</td>
-                <td>im jim too</td>
-                <td>im not jim</td>
-            </tr>
-            <tr>
-                <td>im jake</td>
-                <td>im bob jake</td>
-                <td>im not jake</td>
-            </tr>
-        </table>
     </body>
 </html>
