@@ -30,8 +30,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  bme688.measureData()
-  return render_template('airwise.html', template_folder='templates', humidity=bme688.readHumidity(), co2=bme688.readeCO2(), temperature=bme688.readTemperature(), aqp=bme688.getAirQualityPercent(), pressure=bme688.readPressure())
+  return render_template('airwise.html', template_folder='templates')
 
 #loop with calibration check
 
