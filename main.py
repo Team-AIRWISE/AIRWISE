@@ -36,6 +36,7 @@ def index():
 #loop with calibration check
 
 def run_loop():
+  print("debug")
   calibration = 0
   global humidOn
   while True:
