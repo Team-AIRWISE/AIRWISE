@@ -30,6 +30,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+  bme688.measureData()
   return render_template('airwise.html', template_folder='templates', humidity=bme688.readHumidity())
 
 def run_loop():
