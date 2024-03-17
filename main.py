@@ -114,8 +114,8 @@ def looped(humidOn):
       print("humidifier off")
 
   #co2 level warning
-  '''
-  if bme688.readeCO2()>10000 and bme688.readeCO2()<12000:
+      
+  if bme688.readeCO2()>800 and bme688.readeCO2()<1000:
     oled.clear()
     oled.displayText("C02 levels are high", 1)
     oled.displayText("Caution!", 2)
@@ -129,7 +129,7 @@ def looped(humidOn):
     buzzer.stop()
     c02High=True
 
-  elif bme688.readeCO2()>12000:
+  elif bme688.readeCO2()>1000:
     print(bme688.readeCO2())
     oled.clear()
     oled.displayText("C02 levels are EXTREMELY HIGH", 1)
@@ -144,7 +144,7 @@ def looped(humidOn):
 
   #AQI level Warning
 
-  if bme688.getAirQualityPercent()>300 and bme688.getAirQualityPercent()<400:
+  if bme688.getAirQualityScore()>150 and bme688.getAirQualityScore()<200:
     oled.clear()
     oled.displayText("Air Quality levels are unhealthy", 1)
     oled.displayText("Caution!", 2)
@@ -157,18 +157,18 @@ def looped(humidOn):
       sleep(1)
     buzzer.stop()
     c02High=True
-  elif bme688.getAirQualityPercent()>400:
+  elif bme688.getAirQualityScore()>200:
     oled.clear()
     oled.displayText("Air Quality levels are EXTREMELY unhealthy", 1)
     oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
     oled.show()
     buzzer.start()
-    while bme688.getAirQualityPercent()>400:
+    while bme688.getAirQualityScore()>200:
       buzzer.changeTone(440)
       sleep(1)
       buzzer.changeTone(220)
       sleep(1)
-  '''
+
   #Record data in database
       
   currentTime = str(datetime.datetime.now())
