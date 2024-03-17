@@ -96,12 +96,14 @@ def looped(humidOn):
 
   return humidOn
 
+#run website and sensor values in seperate threads(processes)
+
 if __name__ == '__main__':
     print("debug1")
     thread = Thread(target=run_loop)
     print("debug2")
     thread.start()
     print("debug3")
-    app.run(debug=True, host='AIRWISE.local', port=5000)
+    app.run(host='AIRWISE.local', port=5000)
 
 conn.close()
