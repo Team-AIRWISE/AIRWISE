@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,5 +14,28 @@
         <p>eCO2: {{co2}}ppm</p>
         <p>Air Quality: {{aqp}}%</p>
         <p> this is a fun little thing we do be makin</p>
+    </body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Airwise</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <h1>Airwise Dashboard</h1>
+                <div class="info">
+                    <div class="info-item">Temperature: {{temperature}}&#8451;</div>
+                    <div class="info-item">Pressure: {{pressure}}Pa</div>
+                    <div class="info-item">Humidity: {{humidity}}%</div>
+                    <div class="info-item">eCO2: {{co2}}ppm</div>
+                    <div class="info-item">Air Quality: {{aqp}}%</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
