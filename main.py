@@ -18,12 +18,6 @@ buzzer = KitronikBuzzer()
 # Calibrate sensor
 bme688.calcBaselines(oled)
 bme688.measureData()
-bme688.readHumidity()
-bme688.readeCO2()
-bme688.getAirQualityPercent()
-bme688.readTemperature()
-bme688.getAirQualityScore()
-bme688.readPressure()
 
 # Host website
 app = Flask(__name__)
@@ -41,6 +35,12 @@ def run_loop():
   global humidOn
   while True:
     bme688.measureData()
+    bme688.readHumidity()
+    bme688.readeCO2()
+    bme688.getAirQualityPercent()
+    bme688.readTemperature()
+    bme688.getAirQualityScore()
+    bme688.readPressure()
     sleep(10)
     calibration=calibration+1
     if calibration>10:
