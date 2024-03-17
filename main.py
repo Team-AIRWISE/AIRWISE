@@ -40,6 +40,7 @@ def run_loop():
   calibration = 0
   global humidOn
   while True:
+    bme688.measureData()
     sleep(10)
     calibration=calibration+1
     if calibration>10:
