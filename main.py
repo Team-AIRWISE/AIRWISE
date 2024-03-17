@@ -37,14 +37,14 @@ def index():
 
 def run_loop():
   print("debug")
-  calibration = 100
+  calibration = 0
   global humidOn
-  calibration=calibration+1
   while True:
-    if calibration>100:
+    sleep(10)
+    calibration=calibration+1
+    if calibration>10:
       print("debug")
       humidOn = looped(humidOn)
-      sleep(10)
 
 #process to be looped
 
