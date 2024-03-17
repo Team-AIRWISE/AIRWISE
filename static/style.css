@@ -55,3 +55,14 @@ h1 {
     padding: 10px 20px;
     margin: 10px 0;
 }
+body {
+    font-family: Verdana, Arial, sans-serif;
+}
+
+h1 {
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.info-item {
+    font-family: Verdana, Arial, sans-serif;
+}
