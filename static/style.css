@@ -22,3 +22,42 @@ td{
     border:solid red;
     border-radius: 15px;
 }
+body {
+    background-color: #d7efff; /* baby blue */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* prevent scrolling */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: #ffffff; /* light blue */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #ff85a2; /* pastel pink */
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info-item {
+    background-color: #b3d9ff; /* pastel blue */
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
