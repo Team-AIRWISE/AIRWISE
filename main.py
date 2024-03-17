@@ -1,3 +1,4 @@
+#import libraries
 from flask import Flask, render_template
 from time import sleep
 from KitronikAirQualityControlHAT import *
@@ -5,7 +6,6 @@ import RPi.GPIO as gpio
 import sqlite3
 import datetime
 from threading import Thread
-
 humidOn = False
 
 # Define modules
@@ -78,9 +78,109 @@ def looped(humidOn):
   # Water level check TBF
 
   # Humidity correction
-  # Your humidity correction logic goes here
+  if bme688.readHumidity()>47:
+    if humidOn==True:
+      hpo2.turnOn()
+      sleep(0.2)
+      hpo2.turnOff()
+      sleep(1)
+      hpo2.turnOn()
+      sleep(0.2)
+      hpo2.turnOff()
+      humidOn=False
+      print("humidifier off")
+    hpo1.turnOn()
+
+  elif bme688.readHumidity()<43:
+    if humidOn==False:
+      hpo2.turnOn()
+      sleep(0.2)
+      hpo2.turnOff()
+      humidOn=True
+      print("humidifier on")
+    hpo1.turnOff()
+
+  else:
+    hpo1.turnOff()
+    if humidOn==True:
+      hpo2.turnOn()
+      sleep(0.2)
+      hpo2.turnOff()
+      sleep(1)
+      hpo2.turnOn()
+      sleep(0.2)
+      hpo2.turnOff()
+      humidOn=False
+      print("humidifier off")
+
+  #co2 level warning
+  '''
+  if bme688.readeCO2()>10000 and bme688.readeCO2()<12000:
+    oled.clear()
+    oled.displayText("C02 levels are high", 1)
+    oled.displayText("Caution!", 2)
+    oled.show()
+    buzzer.start()
+    for i in range(4):
+      buzzer.changeTone(440)
+      sleep(1)
+      buzzer.changeTone(220)
+      sleep(1)
+    buzzer.stop()
+    c02High=True
+
+  elif bme688.readeCO2()>12000:
+    print(bme688.readeCO2())
+    oled.clear()
+    oled.displayText("C02 levels are EXTREMELY HIGH", 1)
+    oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
+    oled.show()
+    buzzer.start()
+    while bme688.readeCO2()>1000:
+      buzzer.changeTone(440)
+      sleep(1)
+      buzzer.changeTone(220)
+      sleep(1)
+
+  #AQI level Warning
+
+  if bme688.getAirQualityScore()>300 and bme688.getAirQualityScore()<400:
+    oled.clear()
+    oled.displayText("Air Quality levels are unhealthy", 1)
+    oled.displayText("Caution!", 2)
+    oled.show()
+    buzzer.start()
+    for i in range(4):
+      buzzer.changeTone(440)
+      sleep(1)
+      buzzer.changeTone(220)
+      sleep(1)
+    buzzer.stop()
+    c02High=True
+  elif bme688.getAirQualityScore()>400:
+    oled.clear()
+    oled.displayText("Air Quality levels are EXTREMELY unhealthy", 1)
+    oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
+    oled.show()
+    buzzer.start()
+    while bme688.getAirQualityScore()>400:
+      buzzer.changeTone(440)
+      sleep(1)
+      buzzer.changeTone(220)
+      sleep(1)
+  '''
+  #Record data in database
+      
+  currentTime = str(datetime.datetime.now())
+  temperature = bme688.readTemperature()
+  humidity = bme688.readHumidity()
+  co2 = bme688.readeCO2()
+  aqi = bme688.getAirQualityScore()
+  aqp = bme688.getAirQualityPercent()
+  pressure = bme688.readPressure()
 
   # Record data in database
+
   currentTime = str(datetime.datetime.now())
   temperature = bme688.readTemperature()
   humidity = bme688.readHumidity()
