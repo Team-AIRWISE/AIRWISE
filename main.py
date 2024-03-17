@@ -69,10 +69,10 @@ def looped(humidOn):
   # Display air quality levels
   oled.clear()
   oled.displayText("Temperature:" + str(bme688.readTemperature()), 1)
-  oled.displayText("Pressure:" + str(bme688.readPressure()), 2)
-  oled.displayText("Humidity:" + str(bme688.readHumidity()), 3)
-  oled.displayText("eCO2:" + str(bme688.readeCO2()), 4)
-  oled.displayText("Air Quality %:" + str(bme688.getAirQualityPercent()), 5)
+  oled.displayText("Humidity:" + str(bme688.readHumidity()), 2)
+  oled.displayText("eCO2:" + str(bme688.readeCO2()), 3)
+  oled.displayText("Air Quality %:" + str(bme688.getAirQualityPercent()), 4)
+  oled.displayText("AQI:" + str(bme688.getAirQualityScore()), 5)
   oled.show()
 
   # Water level check TBF
@@ -144,7 +144,7 @@ def looped(humidOn):
 
   #AQI level Warning
 
-  if bme688.getAirQualityScore()>300 and bme688.getAirQualityScore()<400:
+  if bme688.getAirQualityPercent()>300 and bme688.getAirQualityPercent()<400:
     oled.clear()
     oled.displayText("Air Quality levels are unhealthy", 1)
     oled.displayText("Caution!", 2)
@@ -157,13 +157,13 @@ def looped(humidOn):
       sleep(1)
     buzzer.stop()
     c02High=True
-  elif bme688.getAirQualityScore()>400:
+  elif bme688.getAirQualityPercent()>400:
     oled.clear()
     oled.displayText("Air Quality levels are EXTREMELY unhealthy", 1)
     oled.displayText("EVACUATE AREA IMMEDIATELY", 2)
     oled.show()
     buzzer.start()
-    while bme688.getAirQualityScore()>400:
+    while bme688.getAirQualityPercent()>400:
       buzzer.changeTone(440)
       sleep(1)
       buzzer.changeTone(220)
