@@ -12,28 +12,20 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 ## Parts Required:
 
 Raspberry pi 
-
-Kitronik Air Quality Control Hat for Pi 
-
-LED indicator (optional) 
-
-Peltier module (9V)* 
-
-Heat-sink x2* 
-
-Box fan (9V)* 
-
-Micro limit switch 
-
-Jumper wires 
-
-Ultrasonic water atomiser/vaporiser 
-
-Double Relay module 
-
+1.Kitronik Air Quality Control Hat for Pi 
+2.LED indicator (optional) 
+3.Peltier module (9V)* 
+4.Heat-sink x2* 
+5.Box fan (9V)* 
+6.Micro limit switch 
+7.Jumper wires 
+8.Ultrasonic water atomiser/vaporiser 
+9.Double Relay module 
 Parts for case made according to 3d model provided (Recommended to 3print with PLA filament) 
 
-### software Required:
+## software Required:
+
 Pi imager
 
 MobaXterm
+
