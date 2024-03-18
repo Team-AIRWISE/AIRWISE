@@ -11,7 +11,6 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 
 ## Parts Required:
 
-Raspberry pi 
 1.Kitronik Air Quality Control Hat for Pi  
 2.LED indicator (optional)   
 3.Peltier module (9V)*   
@@ -21,11 +20,22 @@ Raspberry pi
 7.Jumper wires   
 8.Ultrasonic water atomiser/vaporiser   
 9.Double Relay module   
-Parts for case made according to 3d model provided (Recommended to 3print with PLA filament)   
+10.Parts for case made according to 3d model provided (Recommended to 3print with PLA filament)   
+11.Raspberry Pi  
 
-## software Required:
+## Software Required:
 
-Pi imager
-
+Pi imager  
 MobaXterm
 
+### Preparing the main modules
+
+Take your Peltier module and apply thermal paste to one side then firmly attach the heatsink, do the same for the other side. Ensure that:  
+A) The side of the heatsink the fan is attached to is the one that gets warm when voltage is applied. If you are not sure, wait till the device is fully assembled, then test.   
+B) Also make sure that the fan is blowing into the heatsink as opposed to drawing in, if not, flip the fan so its blowing into the heatsink.  
+The peltier module and box fan shall be attached in series (as shown in diagram)
+
+Alternative: 
+	You can also do what we have done for our prototype, which is use the internals of a mini dehumidifier, saving costs, however this may be more complex to achieve. 
+
+ 
