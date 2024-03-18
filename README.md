@@ -57,7 +57,7 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 
 - Mount the switch into the structure.
 - Use M2.5 nuts and bolts to secure the relay and Raspberry Pi on the midplate.
-- Connect wiring according to the circuit diagram.
+- Connect wiring according to the pictures
 
 ## Software:
 
