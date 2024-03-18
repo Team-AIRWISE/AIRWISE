@@ -33,7 +33,6 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 
 1. **Assembling the Dehumidifier Unit:**
    - Apply thermal paste to one side of the Peltier module and attach the heat-sink, repeat for the other side.
-   - Attach a relay to provide power controlled by the Raspberry Pi.
    - Mount the 9V fan to one heat-sink, ensuring proper orientation and airflow direction.
 
    *Alternative:* Utilize the internals of a mini dehumidifier.
