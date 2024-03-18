@@ -69,7 +69,7 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 
 Your AIRWISE device should now be finished in terms of hardware and ready for software configuration.
 
-![AIRWISE Device Image](insert_image_link_here)
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/ribbon.jpg)
 
 ---
 
