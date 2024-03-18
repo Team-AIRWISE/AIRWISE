@@ -30,16 +30,18 @@ MobaXterm
 
 ### Preparing the main modules
 
-## Peltier/Dehumidifier
+#### Peltier/Dehumidifier
 
 Take your Peltier module and apply thermal paste to one side then firmly attach the heatsink, do the same for the other side. Ensure that:  
 
 A) The side of the heatsink the fan is attached to is the one that gets warm when voltage is applied. If you are not sure, wait till the device is fully assembled, then test.   
 
 B) Also make sure that the fan is blowing into the heatsink as opposed to drawing in, if not, flip the fan so its blowing into the heatsink.  
+
 The peltier module and box fan shall be attached in series (as shown in diagram)
 
 Alternative: 
 	You can also do what we have done for our prototype, which is use the internals of a mini dehumidifier, saving costs, however this may be more complex to achieve. 
+
 
  
