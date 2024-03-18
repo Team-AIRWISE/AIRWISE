@@ -30,6 +30,8 @@ MobaXterm
 
 ### Preparing the main modules
 
+## Peltier/Dehumidifier
+
 Take your Peltier module and apply thermal paste to one side then firmly attach the heatsink, do the same for the other side. Ensure that:  
 
 A) The side of the heatsink the fan is attached to is the one that gets warm when voltage is applied. If you are not sure, wait till the device is fully assembled, then test.   
