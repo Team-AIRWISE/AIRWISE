@@ -71,6 +71,23 @@ Your AIRWISE device should now be finished in terms of hardware and ready for so
 
 ![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/ribbon.jpg)
 
----
 
 *Dylan, please insert the picture here or else I will dognap 🟦*
+
+Software:
+
+** Connect Via SSH **
+    - Plug in your Pi
+    - Wait for a minute for the Pi to boot up and connect to the internet, as configured earlier
+    - Open MobaXterm on your computer
+    - Double-click session
+    - Click SSH
+    - Tick specify username, and enter pi as the username. In the box marked Remote Host, enter AIRWISE.local
+    - Press OK to start session
+** Turn on serial: **
+    - Open terminal on your Raspberry Pi or via SSH.
+    - Run `sudo raspi-config`.
+    - Navigate to 'Interface Options'.
+    - Select 'Serial Port'.
+    - Choose 'Yes' to enable the serial port.
+    - Reboot your Pi for changes to take effect.
