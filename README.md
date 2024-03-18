@@ -59,35 +59,25 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 - Use M2.5 nuts and bolts to secure the relay and Raspberry Pi on the midplate.
 - Connect wiring according to the pictures
 
-## Software:
-
-1. Connect via SSH.
-2. Plug in your Pi and wait for boot-up.
-3. Open MobaXterm on your computer.
-4. Double-click session, click SSH, specify username as 'pi', and enter AIRWISE.local as Remote Host.
-5. Start session and turn on serial.
-
 Your AIRWISE device should now be finished in terms of hardware and ready for software configuration.
 
-![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/ribbon.jpg)
-
-
-*Dylan, please insert the picture here or else I will dognap 🟦*
-
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/body.jpg)
+---
 Software:
 
 ** Connect Via SSH **
-    - Plug in your Pi
-    - Wait for a minute for the Pi to boot up and connect to the internet, as configured earlier
-    - Open MobaXterm on your computer
-    - Double-click session
-    - Click SSH
-    - Tick specify username, and enter pi as the username. In the box marked Remote Host, enter AIRWISE.local
-    - Press OK to start session
+- Plug in your Pi
+- Wait for a minute for the Pi to boot up and connect to the internet, as configured earlier
+- Open MobaXterm on your computer
+- Double-click session
+- Click SSH
+- Tick specify username, and enter pi as the username. In the box marked Remote Host, enter AIRWISE.local
+- Press OK to start session
+
 ** Turn on serial: **
-    - Open terminal on your Raspberry Pi or via SSH.
-    - Run `sudo raspi-config`.
-    - Navigate to 'Interface Options'.
-    - Select 'Serial Port'.
-    - Choose 'Yes' to enable the serial port.
-    - Reboot your Pi for changes to take effect.
+- Open terminal on your Raspberry Pi or via SSH.
+- Run `sudo raspi-config`.
+- Navigate to 'Interface Options'.
+- Select 'Serial Port'.
+- Choose 'Yes' to enable the serial port.
+- Reboot your Pi for changes to take effect.
