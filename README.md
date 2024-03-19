@@ -65,7 +65,7 @@ Your AIRWISE device should now be finished in terms of hardware and ready for so
 ---
 ## Software:
 
-1. **Connect via SSH:**
+1. __Connect via SSH:__
     - Plug in your Pi
     - Wait for a minute for the Pi to boot up and connect to the internet, as configured earlier
     - Open MobaXterm on your computer
