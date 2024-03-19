@@ -28,9 +28,10 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 - Box fan (9V)*
 - Micro limit switch
 - Jumper wires
+- Ribbon cable for GPIO
 - Ultrasonic water atomiser/vaporiser
 - Double Relay module
-- Parts for case made according to 3D model provided (Recommended to 3D print with PLA filament)
+- Parts for case made according to [3D model](https://www.thingiverse.com/thing:6523761) provided (Recommended to 3D print with PLA filament)
 
 \*Could be scrapped from a mini dehumidifier
 
@@ -65,7 +66,7 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
 
 ## Building the Body/Structure:
 
-- Utilize provided 3D models for fabrication.
+- Utilize provided [3D models](https://www.thingiverse.com/thing:6523761) for fabrication.
 - Print/fabricate parts and assemble them together.
 - Slide in the mid plate for mounting electronics.
 - Insert reservoir, then the wick of the atomiser.
