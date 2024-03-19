@@ -6,6 +6,16 @@ Team AIRWISE consists of two pupils at Tynecastle High School, Akshith Bhimanere
 ## The Airwise device
 The AIRWISE device's to meticulously measure the air quality of a room/indoor area, and to correct humidity levels. This is achieved by using a Kitronik Air quality control hat, and reading the air quality values through it. This is an open-source project encouraging others to further build on this project, see the code behind it, and build an AIRWISE themselves   
 ![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/AIRWISE_logo.jpg)  
+
+### Functions of the AIRWISE device:
+
+- Air quality measurement
+- Humidity correction
+- CO2 and Air quality buzzer alarm (Email/push notifications coming soon)
+- Oled values display
+- Locally hosted website to view values
+- Water level alert (coming soon)
+
 # Instructions to Build the AIRWISE device
 
 ## Parts List:
