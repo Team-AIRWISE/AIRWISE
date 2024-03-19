@@ -43,21 +43,35 @@ The AIRWISE device's to meticulously measure the air quality of a room/indoor ar
    - Solder header pins onto the hat for water level functionality.
    - Insert a TF card flashed with Raspberry Pi OS (not Lite) pre-configured for WiFi and SSH.
 
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/ribbon.jpg)
+
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/headers.JPG)
+
 ## Preparing and Assembling the Humidifier Unit:
 
 - Solder wires to the buttons of the ultrasonic atomiser control board.
+
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/atomiser.JPG)
 
 ## Building the Body/Structure:
 
 - Utilize provided 3D models for fabrication.
 - Print/fabricate parts and assemble them together.
 - Slide in the mid plate for mounting electronics.
+- Insert reservoir, then the wick of the atomiser.
 
 ## Mounting and Connecting Electronics:
 
-- Mount the switch into the structure.
+- Mount the limit switch into the midplate.
 - Use M2.5 nuts and bolts to secure the relay and Raspberry Pi on the midplate.
-- Connect wiring according to the pictures
+- Friction fit 9v power socket
+- Connect wiring according to the pictures:
+
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/screw.jpg)
+
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/power.jpg)
+
+![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/diagram.png)
 
 Your AIRWISE device should now be finished in terms of hardware and ready for software configuration.
 
@@ -66,13 +80,13 @@ Your AIRWISE device should now be finished in terms of hardware and ready for so
 ## Software:
 
 1. **Connect via SSH:**
-    - Plug in your Pi
-    - Wait for a minute for the Pi to boot up and connect to the internet, as configured earlier
-    - Open MobaXterm on your computer
-    - Double-click session
-    - Click SSH
+    - Plug in your Pi.
+    - Wait for a minute for the Pi to boot up and connect to the internet, as configured earlier.
+    - Open MobaXterm on your computer.
+    - Double-click session.
+    - Click SSH.
     - Tick specify username, and enter pi as the username. In the box marked Remote Host, enter AIRWISE.local
-    - Press OK to start session
+    - Press OK to start session.
 
 
 2. **Enable Serial:**
@@ -84,12 +98,12 @@ Your AIRWISE device should now be finished in terms of hardware and ready for so
     - Reboot your Pi for changes to take effect.
 
 
-3. **Clone our code**  
-    - Run `sudo git clone https://github.com/Team-AIRWISE/AIRWISE`
+3. **Clone our code:**  
+    - Run `sudo git clone https://github.com/Team-AIRWISE/AIRWISE`.
 
 
 4. **Last but not least, Run the code**
-    - Run `cd AIRWISE`
-    - Run `sudo python3 main.py`
+    - Run `cd AIRWISE`.
+    - Run `sudo python3 main.py`.
 
 ## Your AIRWISE device is now all set up! Enjoy a breath of fresh air!
