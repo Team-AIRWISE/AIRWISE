@@ -17,8 +17,9 @@ buzzer = KitronikBuzzer()
 
 # Calibrate sensor
 bme688.calcBaselines(oled)
-bme688.measureData()
 print("hello world")
+bme688.measureData()
+print("hello world1")
 # Host website
 app = Flask(__name__)
 
