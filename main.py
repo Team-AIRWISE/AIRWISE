@@ -41,9 +41,9 @@ def run_loop():
     bme688.readTemperature()
     bme688.getAirQualityScore()
     bme688.readPressure()
-    sleep(10)
+    sleep(0.1)
     calibration=calibration+1
-    if calibration>10:
+    if calibration>1000:
       print("debug")
       humidOn = looped(humidOn)
 
