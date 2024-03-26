@@ -18,7 +18,7 @@ buzzer = KitronikBuzzer()
 # Calibrate sensor
 bme688.calcBaselines(oled)
 bme688.measureData()
-
+print("hello world")
 # Host website
 app = Flask(__name__)
 
@@ -34,6 +34,7 @@ def run_loop():
   calibration = 0
   global humidOn
   while True:
+    print("debug before loop")
     bme688.measureData()
     bme688.readHumidity()
     bme688.readeCO2()
@@ -43,6 +44,7 @@ def run_loop():
     bme688.readPressure()
     sleep(0.01)
     calibration=calibration+1
+    print("debug after loop")
     if calibration>100:
       print("debug")
       humidOn = looped(humidOn)
