@@ -113,8 +113,13 @@ Your AIRWISE device should now be finished in terms of hardware and ready for so
     - Run `sudo git clone https://github.com/Team-AIRWISE/AIRWISE`.
 
 
-4. **Last but not least, Run the code**
+4. **Install libraries:**
     - Run `cd AIRWISE`.
-    - Run `sudo python3 main.py`.
+    - Run `sudo pip install Turbo-Flask`.
+    - Run `cd`.
+
+
+5. **Last but not least, Run the code**
+    - Run `sudo python3 AIRWISE/main.py`.
 
 ## Your AIRWISE device is now all set up! Enjoy a breath of fresh air!
