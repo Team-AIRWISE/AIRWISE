@@ -115,7 +115,7 @@ Your AIRWISE device should now be finished in terms of hardware and ready for so
 
 4. **Install libraries:**
     - Run `cd AIRWISE`.
-    - Run `sudo pip install Turbo-Flask`.
+    - Run `pip install Turbo-Flask --break-system-packages`.
     - Run `cd`.
 
 
