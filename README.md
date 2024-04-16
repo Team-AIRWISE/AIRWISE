@@ -4,7 +4,7 @@ This is the repository the AIRWISE device, which is an entry to the PA PI Raspbe
 Team AIRWISE consists of two pupils at Tynecastle High School, Akshith Bhimanere and Dylan Hill.
 
 ## The Airwise device
-The AIRWISE device's to meticulously measure the air quality of a room/indoor area, and to correct humidity levels. This is achieved by using a Kitronik Air quality control hat, and reading the air quality values through it. This is an open-source project encouraging others to further build on this project, see the code behind it, and build an AIRWISE themselves   
+The AIRWISE device's purpose is to meticulously measure the air quality of a room/indoor area, and to correct humidity levels. This is achieved by using a Kitronik Air quality control hat, and reading the air quality values through it. This is an open-source project encouraging others to further build on this project, see the code behind it, and build an AIRWISE themselves   
 ![AIRWISE Device Image](https://github.com/Team-AIRWISE/AIRWISE/blob/main/images/AIRWISE_logo.jpg)  
 
 ### Functions of the AIRWISE device:
@@ -113,13 +113,7 @@ Your AIRWISE device should now be finished in terms of hardware and ready for so
     - Run `sudo git clone https://github.com/Team-AIRWISE/AIRWISE`.
 
 
-4. **Install libraries:**
-    - Run `cd AIRWISE`.
-    - Run `pip install Turbo-Flask --break-system-packages`.
-    - Run `cd`.
-
-
-5. **Last but not least, Run the code**
+4. **Last but not least, Run the code**
     - Run `sudo python3 AIRWISE/main.py`.
 
 ## Your AIRWISE device is now all set up! Enjoy a breath of fresh air!
