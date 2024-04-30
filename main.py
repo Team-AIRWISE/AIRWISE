@@ -1,4 +1,5 @@
 #import libraries
+
 from flask import Flask, render_template
 from time import sleep
 from KitronikAirQualityControlHAT import *
@@ -9,6 +10,7 @@ from threading import Thread
 humidOn = False
 
 # Define modules
+
 bme688 = KitronikBME688()
 oled = KitronikOLED()
 hpo1 = KitronikHighPowerOut(1)
@@ -16,11 +18,14 @@ hpo2 = KitronikHighPowerOut(2)
 buzzer = KitronikBuzzer()
 
 # Calibrate sensor
+
 bme688.calcBaselines(oled)
 print("hello world")
 bme688.measureData()
 print("hello world1")
+
 # Host website
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -55,6 +60,7 @@ def run_loop():
 def looped(humidOn):
     
   # Connect to database
+
   conn = sqlite3.connect("py.db")
   cur = conn.cursor()
   command1 = """CREATE TABLE IF NOT EXISTS
@@ -62,6 +68,7 @@ def looped(humidOn):
   cur.execute(command1)
 
   # Read Air quality levels
+
   bme688.measureData()
   bme688.readHumidity()
   bme688.readeCO2()
@@ -71,6 +78,7 @@ def looped(humidOn):
   bme688.readPressure()
 
   # Display air quality levels
+
   oled.clear()
   oled.displayText("Temperature:" + str(bme688.readTemperature()), 1)
   oled.displayText("Humidity:" + str(bme688.readHumidity()), 2)
@@ -82,6 +90,7 @@ def looped(humidOn):
   # Water level check TBF
 
   # Humidity correction
+  
   if bme688.readHumidity()>47:
     if humidOn==True:
       hpo2.turnOn()
